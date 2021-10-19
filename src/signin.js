@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js';
-import {  getAuth, signInWithPopup,GoogleAuthProvider,signInWithRedirect,signOut } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
+import {  getAuth, signInWithPopup,GoogleAuthProvider,signInWithRedirect,signOut,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
 const firebaseConfig = {
     apiKey: "AIzaSyCmTHDnIBAYh7rHWDAvpTMvrOyOIXPgInQ",
     authDomain: "avian-mile-315111.firebaseapp.com",
@@ -52,3 +52,16 @@ signOut(auth).then(() => {
 console.log("error",error);
 });
 }
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log(user.email);
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const uid = user.uid;
+      // ...
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
+  
