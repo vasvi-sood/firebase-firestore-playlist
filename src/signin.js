@@ -12,6 +12,15 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig);
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
+  let signin=document.getElementById("signin");
+  let signout=document.getElementById("signin");
+signin.addEventListener('click',(e)=>{
+    console.log("sign in press");
+})
+signout.addEventListener('click',(e)=>{
+    console.log("sign out press");
+})
+  function Googlesign(){
   signInWithPopup(auth, provider)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
@@ -19,6 +28,7 @@ const firebaseConfig = {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+      console.log(user);
       // ...
     }).catch((error) => {
       // Handle Errors here.
@@ -30,3 +40,4 @@ const firebaseConfig = {
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
     });
+}
