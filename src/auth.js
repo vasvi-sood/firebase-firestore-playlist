@@ -167,9 +167,13 @@ async function OrderingByLimit(l)
 const q = query(collection(db, "Cafes"));
 const unsubscribe = onSnapshot(q, (snapshot) => {
   snapshot.docChanges().forEach((change) => {
-    if (change.type === "added" && isLoggedIn()) {
+    if (change.type === "added" ) {
         console.log("New cafe: ", change.doc.data());
         addList(change.doc);
+        if(!isLoggedIn())
+        {
+          UserNotLoggedIn()
+        }
     }
     if (change.type === "modified") {
         console.log("Modified : ", change.doc.data());
@@ -191,3 +195,16 @@ async function UpdateData(id,Name,Rating) {
 }
 
 // UpdateData("0XinUNj9geNVXiuL59Vg","Best Onessss","3.8");
+function UserNotLoggedIn()
+ {
+   console.log("here");
+    var lis=document.querySelectorAll(".list-item");
+    console.log(lis.length);
+    // var form=document.getElementById("cafe_form");
+    // form.classList.add("hide");
+    for (let i = 0; i < lis.length; i++) 
+     {
+        console.log(lis[i]);
+        lis[i].classList.add("hide");
+    }  
+ }
