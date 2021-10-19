@@ -55,13 +55,28 @@ console.log("error",error);
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
-      console.log(user.email);
+     
       // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
+      console.log(user.email);
+      var lis=document.querySelectorAll(".list-item");
+      console.log(lis.length);
+      for (let i = 0; i < lis.length; i++) 
+       {
+          console.log(lis[i]);
+          lis[i].classList.remove("hide");
+      }  
       // ...
     } else {
-      // User is signed out
-      // ...
+     console.log("signedOut");
+     var lis=document.querySelectorAll(".list-item");
+     console.log(lis.length);
+     for (let i = 0; i < lis.length; i++) 
+      {
+         console.log(lis[i]);
+         lis[i].className="hide";
+     }  
+    
     }
   });
   

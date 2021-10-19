@@ -12,3 +12,6 @@ body {
 .cross {
   color: red;
 }
+.hide {
+  display: none;
+}
