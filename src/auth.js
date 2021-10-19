@@ -61,7 +61,7 @@ function addList(doc)
 
   var li = document.createElement("li");
   li.setAttribute('data-id',doc.id);
-  li.classList.add("hide");
+  // li.classList.add("hide");
   li.classList.add("list-item");
   li.appendChild(document.createTextNode(doc.data().Name+"  "+doc.data().Rating+" "));
   var cross=document.createElement("button");
