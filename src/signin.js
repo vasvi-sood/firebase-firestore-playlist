@@ -13,9 +13,10 @@ const firebaseConfig = {
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
   let signin=document.getElementById("signin");
-  let signout=document.getElementById("signin");
+  let signout=document.getElementById("signout");
 signin.addEventListener('click',(e)=>{
     console.log("sign in press");
+    Googlesign();
 })
 signout.addEventListener('click',(e)=>{
     console.log("sign out press");
