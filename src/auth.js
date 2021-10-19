@@ -2,6 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-analytics.js";
 import { getFirestore, collection, getDocs, addDoc, doc, deleteDoc,query, where ,orderBy,limit,onSnapshot,updateDoc } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+import {isLoggedIn} from "./signin.js"
 // import {getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -166,7 +167,7 @@ async function OrderingByLimit(l)
 const q = query(collection(db, "Cafes"));
 const unsubscribe = onSnapshot(q, (snapshot) => {
   snapshot.docChanges().forEach((change) => {
-    if (change.type === "added") {
+    if (change.type === "added" && isLoggedIn()) {
         console.log("New cafe: ", change.doc.data());
         addList(change.doc);
     }
@@ -189,4 +190,4 @@ async function UpdateData(id,Name,Rating) {
   
 }
 
-UpdateData("0XinUNj9geNVXiuL59Vg","Best Onessss","3.8");
+// UpdateData("0XinUNj9geNVXiuL59Vg","Best Onessss","3.8");

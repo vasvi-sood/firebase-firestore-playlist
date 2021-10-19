@@ -53,33 +53,49 @@ console.log("error",error);
 });
 }
 
+export function isLoggedIn()
+{
+    var currUser = auth.currentUser;
+    if(currUser==null)
+    return false;
+    else
+    return true;
+}
+
 onAuthStateChanged(auth, (user) => {
     if (user) {
      
       // https://firebase.google.com/docs/reference/js/firebase.User
-      console.log(user.email);
-      var form=document.getElementById("cafe_form");
-      form.classList.remove("hide");
-      var lis=document.querySelectorAll(".list-item");
-      console.log(lis.length);
-      for (let i = 0; i < lis.length; i++) 
-       {
-          console.log(lis[i]);
-          lis[i].classList.remove("hide");
-      }  
+     UserLoggedIn(user);
       // ...
     } else {
-  
-     var lis=document.querySelectorAll(".list-item");
-     console.log(lis.length);
-     var form=document.getElementById("cafe_form");
-     form.classList.add("hide");
-     for (let i = 0; i < lis.length; i++) 
-      {
-         console.log(lis[i]);
-         lis[i].classList.add("hide");
-     }  
-    
+        UserNotLoggedIn();
     }
   });
   
+ function UserLoggedIn(user)
+ {
+    console.log(user.email);
+    var form=document.getElementById("cafe_form");
+    form.classList.remove("hide");
+    var lis=document.querySelectorAll(".list-item");
+    console.log(lis.length);
+    for (let i = 0; i < lis.length; i++) 
+     {
+        console.log(lis[i]);
+        lis[i].classList.remove("hide");
+    }  
+ }
+
+function UserNotLoggedIn()
+ {
+    var lis=document.querySelectorAll(".list-item");
+    console.log(lis.length);
+    var form=document.getElementById("cafe_form");
+    form.classList.add("hide");
+    for (let i = 0; i < lis.length; i++) 
+     {
+        console.log(lis[i]);
+        lis[i].classList.add("hide");
+    }  
+ }
