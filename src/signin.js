@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js';
-import {  getAuth, signInWithPopup,GoogleAuthProvider,signInWithRedirect } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
+import {  getAuth, signInWithPopup,GoogleAuthProvider,signInWithRedirect,signOut } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
 const firebaseConfig = {
     apiKey: "AIzaSyCmTHDnIBAYh7rHWDAvpTMvrOyOIXPgInQ",
     authDomain: "avian-mile-315111.firebaseapp.com",
