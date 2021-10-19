@@ -20,6 +20,7 @@ signin.addEventListener('click',(e)=>{
 })
 signout.addEventListener('click',(e)=>{
     console.log("sign out press");
+    Googlesignout();
 })
   function Googlesign(){
   signInWithPopup(auth, provider)
@@ -41,4 +42,13 @@ signout.addEventListener('click',(e)=>{
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
     });
+}
+
+function Googlesignout()
+{
+signOut(auth).then(() => {
+ console.log("signed out");
+}).catch((error) => {
+console.log("error",error);
+});
 }
