@@ -57,8 +57,9 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
      
       // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
       console.log(user.email);
+      var form=document.getElementById("cafe_form");
+      form.classList.remove("hide");
       var lis=document.querySelectorAll(".list-item");
       console.log(lis.length);
       for (let i = 0; i < lis.length; i++) 
@@ -68,13 +69,15 @@ onAuthStateChanged(auth, (user) => {
       }  
       // ...
     } else {
-     console.log("signedOut");
+  
      var lis=document.querySelectorAll(".list-item");
      console.log(lis.length);
+     var form=document.getElementById("cafe_form");
+     form.classList.add("hide");
      for (let i = 0; i < lis.length; i++) 
       {
          console.log(lis[i]);
-         lis[i].className="hide";
+         lis[i].classList.add("hide");
      }  
     
     }

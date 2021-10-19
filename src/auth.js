@@ -58,10 +58,11 @@ async function printList()
 
 function addList(doc)
 {
+
   var li = document.createElement("li");
   li.setAttribute('data-id',doc.id);
-  li.className="hide";
-  li.className="list-item";
+  li.classList.add("hide");
+  li.classList.add("list-item");
   li.appendChild(document.createTextNode(doc.data().Name+"  "+doc.data().Rating+" "));
   var cross=document.createElement("button");
   cross.className="cross";
